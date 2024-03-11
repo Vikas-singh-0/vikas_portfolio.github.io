@@ -9,8 +9,8 @@
     <body>
   <div class="top-container">
     <img class="top-cloud" src="images/cloud.png" alt="Cloud">
-   <h1>I'm Vikas Singh.</h1>
-   <h2>A <span class="pro">Full Stack</span> Devloper.</h2>
+    <h1 class="typing">I'm Vikas Singh.</h1>
+    <h2>A <span class="pro">Full Stack</span> Developer.</h2>
    <img class="bottom-cloud" src="images/cloud.png" alt="Cloud">
    <img src="images/mountain.png" alt="mountain">
    </div>
@@ -36,9 +36,9 @@
       </div>
       <div class="skill-row">
 
-        <h3>Dev Camper API project</h3>
+        <h3>world ranks</h3>
         <p>
-          I have made this Devcamper API Project using node express, and some DOM manipulations.This Project is showing API creation with Node.js and using MongoDB for persistant storage of data.
+          I have made this using react.js and uses functional components with custom hooks.
         </p>
         <p>
          <a class="btn" href="https://world-ranks-7srn.vercel.app/">View Project</a>
@@ -72,4 +72,57 @@
      <p class="copyright">© 2024 Vikas Singh.</p>
    </div>
   </body>
+  <script>
+    const myElements = document.querySelectorAll('.intro');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        } else {
+          entry.target.classList.add('stop-animation');
+        }
+      });
+    });
+    myElements.forEach(element => {
+      observer.observe(element);
+    });
+
+
+    // script for typing animation
+      const typingElements = document.querySelectorAll('.typing');
+
+      typingElements.forEach(element => {
+        const text = element.innerText;
+        const words = text.split(' ');
+        element.innerHTML = '';
+
+        words.forEach((word, index) => {
+          const span = document.createElement('span');
+          span.innerText = word + ' ';
+          span.classList.add('word');
+          if (index === 0) {
+            span.classList.add('current');
+          }
+          element.appendChild(span);
+        });
+      });
+
+      const words = document.querySelectorAll('.word');
+      let index = 0;
+
+      const typingInterval = setInterval(() => {
+        const currentWord = words[index];
+        const nextWord = words[index + 1];
+
+        if (currentWord.classList.contains('current')) {
+          currentWord.classList.remove('current');
+          if (nextWord) {
+            nextWord.classList.add('current');
+            index++;
+          } else {
+            clearInterval(typingInterval);
+          }
+        }
+      }, 5000 / words.length);
+  </script>
 </html>

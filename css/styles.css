@@ -111,11 +111,7 @@ a:hover {
   float: right;
   margin-left: 30px;
 }
-.intro
-{
-  width: 30%;
-  margin: auto;
-}
+
 .resize{
   width: 18%;
   margin-right: 10px;
@@ -166,4 +162,116 @@ a:hover {
   background-image: -o-linear-gradient(top, #30e3cb, #2bc4ad);
   background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
   text-decoration: none;
+}
+
+/* Keyframes for animations */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animation to specific elements */
+.intro {
+  width: 30%;
+  margin: auto;
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+/* Transition effects */
+.btn {
+  background: #11cdd4;
+  /* Other styles */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background: #30e3cb;
+  /* Other styles */
+}
+/* Keyframes for animations */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.skill-row {
+  width: 50%;
+  margin: 75px auto 100px auto;
+  text-align: left;
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+.skills-section {
+  display: flex;
+  flex-wrap: wrap;
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+.contact-me {
+  animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+/* Transition effects */
+.btn {
+  background: #11cdd4;
+  /* Other styles */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background: #30e3cb;
+  /* Other styles */
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro {
+  animation: fadeIn 1s ease-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 10;
+}
+
+.intro.animate {
+  animation-play-state: running;
+}
+.my-element.stop-animation {
+  animation-play-state: paused;
+}
+
+/** typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: typing 2s steps(40, end);
 }
